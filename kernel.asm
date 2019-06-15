@@ -56,11 +56,11 @@ option_screen:
 	mov cx, 10001111b		; Colour: white text on light blue
 	call os_draw_background
 
-	mov ax, dialog_string_1		; Ask if user wants app selector or command-line
+	mov ax, strserialport1		; Ask if user wants app selector or command-line
 	mov bx, dialog_string_2
 	mov cx, dialog_string_3
 	mov dx, 1			; We want a two-option dialog box (HDI or EXIT)
-	call os_dialog_box
+	;call os_dialog_box
 
 	cmp ax, 1			; If HDIOK (option 0) chosen, start app selector
 	jne os_draw_background1
@@ -74,7 +74,7 @@ option_screen:
 	os_init_msg		db '*************************Welcome to MYOS OS****************************', 0
 	os_version_msg		db 'Version ', MYOS_VER, 0
 
-	os_init_msg2		db '                         Hardware Details                               ', 0
+	os_init_msg2		db '                         MyOs Hardware Details                               ', 0
 	os_version_msg2		db 'Version ', MYOS_VER, 0
 
 	dialog_string_1		db 'Welcome to MYOS Operating System', 0
@@ -200,7 +200,7 @@ os_hardware:
 	strserialportnumber	db	"Number of serial ports: ", 0x00
 	strserialport1		db	"Base I/O address for serial port 1 (communications port 1 - COM 1): ", 0x00
 	strtotalmemory		db	"Total memory: ", 0x00
-	exitmsg			db	"Press ESC key to exit........"
+	exitmsg			db	"................................................................................"
 	
 
 
